@@ -76,6 +76,9 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+(setq gc-cons-threshold 100000000)
+(setq read-process-output-max (* 1024 1024)) ;; 1mb
+
 (setq mac-option-modifier 'meta)
 (setq mac-command-modifier 'control)
 
@@ -121,15 +124,6 @@
  (autoload 'imath-mode "imath" "Imath mode for math formula input" t)
  (setq imaxima-use-maxima-mode-flag t)
  (add-to-list 'auto-mode-alist '("\\.ma[cx]" . maxima-mode))
-
-  ;; Configure Elfeed
-  (use-package elfeed
-    :config
-(setq elfeed-feeds
-      '("https://pod.link/1097417804.rss"))
-    :bind
-    ("C-x w" . elfeed ))
-
 
 (use-package! counsel
   :defer t
